@@ -22,15 +22,15 @@ Steps Moving Forward:
 
 Signatures of Interest
 ---------------
-Selective Sweeps
+## Selective Sweeps
 The elimination of standing variation in regions linked to a recently fixed beneficial mutation is known as a “selective sweep”.
 
-Difficulties:
+####Difficulties:
 First, the effects of selection are confounded by the effects of demographic factors. The neutral null hypothesis (absence of selective sweeps) is a composite hypothesis that also makes as- sumptions regarding the demography of the populations inves- tigated. Typically, it is assumed that the population is in equilib- rium at constant size and with no population subdivision or gene-flow with other populations.
 
 The second challenge faced in genomic scans of selective sweeps is that much of the available data consist of SNP genotypes that had been initially identified using an ascertainment (or SNP discovery) process. Because these data deviate from a random sample of fully identified genotypes, standard population genetic methods cannot be applied without taking this “ascertainment bias” into account.
 
 
-Extended Regions with High Fst
+## Extended Regions with High Fst
 Easier to locate. Use these to narrow search for selective sweeps. 
 

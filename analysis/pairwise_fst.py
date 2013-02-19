@@ -40,7 +40,7 @@ with open("/share/canFam3.map") as map_file:
 
 map_data = sorted(map_data, key=itemgetter(1,2))
 
-# Loop through all breeds, make some motherfucking pairwise Fst calculations
+# Loop through all breeds, make some pairwise Fst calculations
 with open('../qc_data/ped.log', 'w') as log_file:
 	log_file.write("Comparison_Hash\tBreed One\tBreed Two\tBreed One Count\tBreed Two Count\n")
 	for breed_uno in all_pointers:
