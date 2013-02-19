@@ -10,40 +10,8 @@ A pointing breed is a type of gundog typically used in finding game. Gundogs are
 
 Pointing breeds are thought to have originated in about the 1650s.
 
-Available Data
----------------
-SNP Data for Pointing Families:
-
-Strong pointers:
-Gordon Setter
-Irish Setter
-Pointer (English)
-English Setter
-Irish Red and White Setter
-
-Versatile Breeds:
----------------
-Brittany
-Vizsla
-German Shorthaired Pointer
-Bracco Italiano
-Braque Du Bourbonnais
-Braque Francais
-German Longhaired Pointer
-German Wirehaired Pointer
-Large Munsterlander
-Portuguese Pointer
-Pudelpointer
-Spinone Italiano
-Weimaraner
-Wirehaired Pointing Griffon
-Braque d'Auvergne
-Small Munsterlander
-
-Non-Pointing Breeds
-42 Total
-
 Steps Moving Forward:
+----------------
 1. Compute pairwise Fst for all breed pairs.
 2. Calculate breed specific normalized Fst measures (d(i) from Akey et al 2010) for each pointing breed using two approaches. 
 	a. Using all pointer vs. non-pointer comparisons. Differentiated markers in this set presumably include regions under selection for pointing instinct and regions under selection for other breed-specific traits.
@@ -53,7 +21,7 @@ Steps Moving Forward:
 
 
 Signatures of Interest
-
+---------------
 Selective Sweeps
 The elimination of standing variation in regions linked to a recently fixed beneficial mutation is known as a “selective sweep”.
 
@@ -64,4 +32,5 @@ The second challenge faced in genomic scans of selective sweeps is that much of 
 
 
 Extended Regions with High Fst
+Easier to locate. Use these to narrow search for selective sweeps. 
 
