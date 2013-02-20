@@ -13,3 +13,4 @@ dat = haplohh_cgu_bta12
 #which displays a strong signal of selection
 ehh <- calc_ehh(haplohh_cgu_bta12, mrk=456)
 
+# Will this save to github
