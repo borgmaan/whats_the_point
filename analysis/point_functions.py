@@ -239,4 +239,66 @@ def d_sub_i(breed_name = "", to_compare = []):
 
 	return d_vals
 
+def parse_shapeit_files(samp_file_name = "", hap_file_name = ""):
+	"""
+		Takes a shapeit sample file name as an input
+		and returns a dictionary keyed on sample name
+		with haplotypes as output, also returns a dict
+		with the snp names that were parsed
+	"""
+	# Store haplotypes
+	haplotypes = {}
+	start_cols = {}
+	pos = 0
+
+	# Store SNPs
+	snps = []
+
+	# Parse out sample information
+	with open(samp_file_name) as infile:
+		for line in infile:
+			if not line.startswith("ID_1") and not line.startswith("0"):
+				spl = line.split()
+				alias = spl[0]
+
+				# Store info for parsing of hap file
+				hap_col = (2 * pos) + 5
+				haplotypes[alias] = ["", ""]
+				start_cols[hap_col] = alias
+				pos += 1
+
+	# Parse out haplotype files
+	with open(hap_file_name) as infile:
+		for line in infile:
+			spl = line.split()
+
+			# Grab marker information
+			snps.append([spl[0], spl[3], spl[4]])
+
+			allele_0 = spl[3]
+			allele_1 = spl[4]
+
+			# Loop through line info, add haplotype info to each sample
+			for i in range(5, len(spl)):
+
+				# If the position is in the dict, we are at the first haplotype
+				if i in start_cols:
+					alias = start_cols[i]
+					if spl[i] == "0":
+						haplotypes[alias][0] += allele_0 
+					elif spl[i] == "1":
+						haplotypes[alias][0] += allele_1 
+
+				# If the position is not in the dict, we are at the second haplotype
+				else:
+					alias = start_cols[i - 1]
+					if spl[i] == "0":
+						haplotypes[alias][1] += allele_0 
+					elif spl[i] == "1":
+						haplotypes[alias][1] += allele_1 
+
+	return haplotypes, snps
+
+
+
 

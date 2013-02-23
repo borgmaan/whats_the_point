@@ -11,6 +11,7 @@ sys.path.append('/grill/')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'bbq.settings'
 from pork.models import *
 from chicken.models import *
+from gwas_functions import *
 
 DATA_DIR = '/share/bar_data/'
 PED_DIR = '/share/ped_files/'

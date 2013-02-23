@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Split PED files by chromosome
+#for chr in $(seq 1 38) ; do plink --dog --allow-no-sex --missing-genotype - --exclude /share/ultimateExclusionList.txt --no-fid --noweb --no-parents --no-sex --nonfounders --ped pointers.ped --map /share/canFam3.map --chr $chr --recode --out pointer_chroms/chr$chr\.unphased ; sed -i 's/-/0/g' pointer_chroms/chr$chr\.unphased.ped; done
+#for chr in $(seq 1 38) ; do plink --dog --allow-no-sex --missing-genotype - --exclude /share/ultimateExclusionList.txt --no-fid --noweb --no-parents --no-sex --nonfounders --ped non_pointers.ped --map /share/canFam3.map --chr $chr --recode --out non_chroms/chr$chr\.unphased ; sed -i 's/-/0/g' non_chroms/chr$chr\.unphased.ped ; done
+
+# Phase haplotypes
+for chr in $(seq 1 38) 
+do 
+	shapeit --input-ped non_chroms/chr$chr\.unphased.ped non_chroms/chr$chr\.unphased.map --output-max non_phased/chr$chr\.phased.haps non_phased/chr$chr\.phased.sample --thread 11
+done
+
+for chr in $(seq 1 38) 
+do 
+	shapeit --input-ped pointer_chroms/chr$chr\.unphased.ped pointer_chroms/chr$chr\.unphased.map --output-max pointer_phased/chr$chr\.phased.haps pointer_phased/chr$chr\.phased.sample  --thread 11
+done
+

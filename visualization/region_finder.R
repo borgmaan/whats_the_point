@@ -6,7 +6,8 @@
 library(ggplot2)
 library(reshape)
 
-setwd("/home/andrew/Dropbox/pointing/scripts/")
+#setwd("/home/andrew/Dropbox/pointing/scripts/")
+setwd("/home/andrew/projects/whats_the_point/visualization/")
 source('fst_functions.R')
 
 pp = df_from_dir("/media/3C52A21052A1CF48/pointer_vs_pointer/")
@@ -54,13 +55,17 @@ cols = rep(c('#000000','#585858'),40)
 #outfile_name = paste("/media/3C52A21052A1CF48/images_pointer_vs_pointer/", f,sep="")
 
 png("/home/andrew/Dropbox/pointing/hits/d_i_no_labs.png", height=700, width=1800)
+
 par(mar=c(5.1,6,4.3,2.1))
 plot(d_i ~ BP, xlab='Chromosome',ylab=expression(d(italic(i))),main="Adjusted D(i) Values Averaged\nAcross All Pointing Breeds", axes=F,frame.plot=T, cex.lab = 1.8, cex.main=1.8, data=dat, col="#FFFFFF")
-axis(1, at=ticks, cex.axis = 1.8, lab=c(seq(1,(length(unique(dat$CHR)) - 1)), "X"))
-axis(2, cex.axis = 1.8)
+axis(1, at=ticks, cex.axis = 1.8, lab=c(seq(1,(length(unique(dat$CHR)) - 1)), "X"), lwd=4)
+axis(2, cex.axis = 1.8, lwd=4)
+box(lwd=4)
 for (i in 1:39) {
   with(dat[dat$CHR==i, ],points(BP, d_i, col=cols[i],pch=20))  
 }
+abline(h=quantile(dat$d_i, .999), lwd=5, col='red')
+
 
 dev.off()
 
