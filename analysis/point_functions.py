@@ -267,6 +267,7 @@ def parse_shapeit_files(samp_file_name = "", hap_file_name = ""):
 				start_cols[hap_col] = alias
 				pos += 1
 
+
 	# Parse out haplotype files
 	with open(hap_file_name) as infile:
 		for line in infile:
