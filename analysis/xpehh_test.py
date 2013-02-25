@@ -61,35 +61,44 @@ with open("%s%d.ihsmap" % (MAP_DIR, chrom) ,"w") as map_file:
 		# Get positional info
 		snp_name = snp[0]
 		pos_info = [x for x in map_data if x[0] == snp_name][0]
-		print pos_info
-		pos = pos_info[2]
+		pos = float(pos_info[2])
 		cm_pos = (pos / 1000000) * 0.97
 
 		# Figure out how markers are coded
 		alleles = snp_alleles[snp_name].keys()
-
-		# Write out alleles in the proper order
-		if snp_alleles[snp_name][alleles[0]] == 0:
-			map_file.write(str(x) for x in [snp, pos, cm_pos, snp_alleles[snp_name][alleles[0]], snp_alleles[snp_name][alleles[1]]])
+		if len(alleles) == 1:	
+			map_file.write(" ".join([str(x) for x in [snp_name, pos, cm_pos, snp_alleles[snp_name][alleles[0]], snp_alleles[snp_name][alleles[0]]]]) + "\n")
 		else:
-			map_file.write(str(x) for x in [snp, pos, cm_pos, snp_alleles[snp_name][alleles[1]], snp_alleles[snp_name][alleles[0]]])			
+			# Write out alleles in the proper order
+			if snp_alleles[snp_name][alleles[0]] == 0:
+				map_file.write(" ".join([str(x) for x in [snp_name, pos, cm_pos, snp_alleles[snp_name][alleles[0]], snp_alleles[snp_name][alleles[1]]]]) + "\n")
+			else:
+				map_file.write(" ".join([str(x) for x in [snp_name, pos, cm_pos, snp_alleles[snp_name][alleles[1]], snp_alleles[snp_name][alleles[0]]]]) + "\n")			
 
 
 # Write out pointer file
 with open("%s%d.ihshap" % (POINT_DIR, chrom) ,"w") as hap_file:
 	with open("%s%d.ident" % (POINT_DIR, chrom) ,"w") as ind_file:
 		for dog in pointers:
-			hap_1 = pointers[dog][0]
-			hap_2 = pointers[dog][1]
-			print hap_1
-			print hap_2
-			for i in range(len(hap1)):
-				hap_1[i] = snp_alleles[point_snps[i]][hap_1[i]]
-				hap_2[i] = snp_alleles[point_snps[i]][hap_2[i]]
-			print hap_1
-			print hap_2
-			print "--------------------------------------------------------------------------"
-			hap_file.write(hap_1 + "\n" + hap_2 + "\n")
+			hap_1 = list(pointers[dog][0])
+			hap_2 = list(pointers[dog][1])
+
+			# Sub in correct 0s and 1s based on what was written to map file
+			for i in range(len(hap_1)):
+
+				try:
+					hap_1[i] = snp_alleles[point_snps[i][0]][hap_1[i]]	
+					hap_2[i] = snp_alleles[point_snps[i][0]][hap_2[i]]
+					
+				except:
+					print "Allele", hap_1[i], 'or', hap_2[i], "was not found in"
+					print point_snps[i][0]
+					raw_input()
+					print snp_alleles[point_snps[i][0]]
+					raw_input()
+
+			# Write out haplotypes and identifiers
+			hap_file.write(" ".join(hap_1) + "\n" + " ".join(hap_2) + "\n")
 			ind_file.write(dog + "\n" + dog + "\n")
 			
 

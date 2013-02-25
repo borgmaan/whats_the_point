@@ -241,9 +241,9 @@ def d_sub_i(breed_name = "", to_compare = []):
 
 def parse_shapeit_files(samp_file_name = "", hap_file_name = ""):
 	"""
-		Takes a shapeit sample file name as an input
-		and returns a dictionary keyed on sample name
-		with haplotypes as output, also returns a dict
+		Takes a shapeit sample file and hap file name 
+		as input and returns a dictionary keyed on sample 
+		name with haplotypes as output, also returns a dict
 		with the snp names that were parsed
 	"""
 	# Store haplotypes
