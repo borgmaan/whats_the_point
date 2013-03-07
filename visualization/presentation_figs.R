@@ -8,7 +8,7 @@ library(ggplot2)
 setwd("/Users/andrewborgman/Dropbox/pointing/rip/")
 
 #call_rates = read.csv("/home/andrew/Dropbox/pointing/qc_data/breed_call_rates.csv")
-call_rates = read.csv("/Users/andrewborgman/Dropbox/pointing/qc_data/breed_call_rates.csv")
+call_rates = read.csv("/Users/andrewborgman/Dropbox/pointing/qc_data/breed_call_rates.csv", check.names=F))
 call_rates$Mean_Call = call_rates$Mean_Call * 100
 call_rates$SE_Call = call_rates$SE_Call * 100
 call_rates$dummy_order = as.numeric(call_rates$Type)
