@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+rm#!/usr/bin/env Rscript
 # Andrew Borgman
 # 2/16/2013
 # Looking for extended regions of elevated Fst to 
