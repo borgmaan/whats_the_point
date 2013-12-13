@@ -3,12 +3,12 @@ Genetics of Pointing Instinct
 
 Collection of Python and R modules to investigate the genetic mechanisms driving inherited behavioral traits (like pointing) in dogs. Initial round of analyses will be conducted using Illumina Canine HD 173K SNP array.
 
+![fst-summary](https://github.com/borgmaan/whats_the_point/raw/master/images/fst_figure_2.png.png)
+
 
 Background 
 ---------------
-A pointing breed is a type of gundog typically used in finding game. Gundogs are traditionally divided into three classes: retrievers, flushing dogs, and pointing breeds. The name pointer comes from the dog's instinct to point, by stopping and aiming its muzzle towards game. This demonstrates to the hunter the location of his or her quarry and allows them to move into gun range. Pointers were selectively bred for dogs who had abundant pointing and backing instinct. They typically start to acquire their hunting instincts at about 2 months of age.
-
-Pointing breeds are thought to have originated in about the 1650s.
+A pointing breed is a type of gundog typically used in finding game. Gundogs are traditionally divided into three classes: retrievers, flushing dogs, and pointing breeds. The name pointer comes from the dog's instinct to point, by stopping and aiming its muzzle towards game. This demonstrates to the hunter the location of his or her quarry and allows them to move into gun range. Pointers were selectively bred for dogs who had abundant pointing and backing instinct. They typically start to acquire their hunting instincts at about 2 months of age. Pointing breeds are thought to have originated in about the 1650s.
 
 Steps Moving Forward:
 ----------------
@@ -17,8 +17,6 @@ Steps Moving Forward:
 	a. Using all pointer vs. non-pointer comparisons. Differentiated markers in this set presumably include regions under selection for pointing instinct and regions under selection for other breed-specific traits.
 	b. Using all pointer vs. pointer comparisons. Regions associated with pointing instinct should be undifferentiated in these comparisons while regions corresponding to breed specific traits should still show differentiation.
 3. To remove breed-specific signatures of selection, the di statistics for pointer-vs.-pointer comparisons will be subtracted from the di statistics resulting from the comparisons with non-pointing breeds to produce a new set of adjusted di values.
-
-
 
 Signatures of Interest
 ---------------
