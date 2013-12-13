@@ -3,7 +3,7 @@ Genetics of Pointing Instinct
 
 Collection of Python and R modules to investigate the genetic mechanisms driving inherited behavioral traits (like pointing) in dogs. Initial round of analyses will be conducted using Illumina Canine HD 173K SNP array.
 
-![fst-summary](https://github.com/borgmaan/whats_the_point/raw/master/images/fst_figure_2.png.png)
+![fst-summary](https://raw.github.com/borgmaan/whats_the_point/master/images/fst_figure_2.png)
 
 
 Background 
